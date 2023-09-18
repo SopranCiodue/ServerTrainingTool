@@ -1,0 +1,10 @@
+﻿using ServerTrainingTool.Application.Contracts.Common;
+
+namespace ServerTrainingTool.Application.Contracts
+{
+    public interface IUnitOfWork : IDisposable
+    {
+        IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : class;
+        Task<int> Complete();
+    }
+}

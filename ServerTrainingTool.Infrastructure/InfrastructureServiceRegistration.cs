@@ -18,6 +18,8 @@ namespace ServerTrainingTool.Infrastructure
 
             services.AddDbContext<TrainingToolDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnectionTrainingToolSopran")));
 
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+
             services.AddTransient(typeof(IAsyncRepository<>), typeof(BaseAsyncRepository<>));
 
             services.AddTransient<ITabellaCorsiRepository, TabellaCorsiRepository>();
